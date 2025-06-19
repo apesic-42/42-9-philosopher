@@ -34,7 +34,10 @@ int	init_rules(t_rules *rules, int argc, char **argv)
 	rules->time_to_die = ft_atoi(argv[2]);
 	rules->time_to_eat = ft_atoi(argv[3]);
 	rules->time_to_sleep = ft_atoi(argv[4]);
-	rules->must_eat_count = (argc == 6) ? ft_atoi(argv[5]) : -1;
+	if (argc == 6)
+		rules->must_eat_count = ft_atoi(argv[5]);
+	else
+		rules->must_eat_count = -1;
 	rules->died = 0;
 	if (rules->nb_philo <= 0 || rules->nb_philo > 200)
 		return (1);

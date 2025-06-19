@@ -95,7 +95,7 @@ int     monitor(t_rules *rules)
                 full = 0;
                 while (i < rules->nb_philo)
                 {
-                        pthread_mutex_lock(&rules->print); // petite protection lecture
+                        pthread_mutex_lock(&rules->print);
                         now = timestamp();
                         if ((now - rules->philos[i].last_meal) >= rules->time_to_die)
                         {
