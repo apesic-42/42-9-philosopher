@@ -6,7 +6,7 @@
 /*   By: apesic <apesic@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:20:20 by apesic            #+#    #+#             */
-/*   Updated: 2025/06/19 11:31:05 by apesic           ###   ########.fr       */
+/*   Updated: 2025/06/19 13:04:52 by apesic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct s_philo {
 
 int	init_rules(t_rules *rules, int argc, char **argv);
 int	create_philosophers(t_rules *rules);
-int	ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 int	write_error(const char *msg);
 int	start_simulation(t_rules *rules);
 void	*philo_routine(void *arg);
