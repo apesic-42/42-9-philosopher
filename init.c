@@ -102,10 +102,14 @@ int	init_rules(t_rules *rules, int argc, char **argv)
 	rules->died = 0;
 	if (rules->nb_philo <= 0 || rules->nb_philo > 200)
 		return (1);
-	rules->forks = malloc(sizeof(pthread_mutex_t) * rules->nb_philo);
-	rules->philos = malloc(sizeof(t_philo) * rules->nb_philo);
-	if (!rules->forks || !rules->philos)
-		return (1);
+    rules->forks = malloc(sizeof(pthread_mutex_t) * rules->nb_philo);
+    rules->philos = malloc(sizeof(t_philo) * rules->nb_philo);
+    if (!rules->forks || !rules->philos)
+    {
+            free(rules->forks);
+            free(rules->philos);
+            return (1);
+    }
 	while (i < rules->nb_philo)
 		pthread_mutex_init(&rules->forks[i++], NULL);
 	pthread_mutex_init(&rules->print, NULL);
