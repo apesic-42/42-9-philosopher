@@ -125,9 +125,6 @@ int     monitor(t_rules *rules)
 
 
 
-
-
-
 int	start_simulation(t_rules *rules)
 {
 	int	i;
@@ -143,8 +140,8 @@ int	start_simulation(t_rules *rules)
 		usleep(100);
 		i++;
 	}
-	if (monitor(rules) != 0)
-		return (1);
+        if (monitor(rules) != 0)
+	        return (0);
 	i = 0;
 	while (i < rules->nb_philo)
 		pthread_join(rules->philos[i++].thread_id, NULL);

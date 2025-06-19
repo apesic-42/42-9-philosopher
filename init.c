@@ -58,12 +58,38 @@ bool check_neg(int argc, char **argv)
 	return (true);
 }
 
+
+bool	check_str(int argc, char **argv)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while (i < argc)
+	{
+		j = 0;
+		if (argv[i][j] == '+')
+			j++;
+		if (argv[i][j] == '\0')
+			return (false);
+		while (argv[i][j])
+		{
+			if (argv[i][j] < '0' || argv[i][j] > '9')
+				return (false);
+			j++;
+		}
+		i++;
+	}
+	return (true);
+}
+
+
 int	init_rules(t_rules *rules, int argc, char **argv)
 {
 	int i;
 
 	i = 0;
-	if ((argc != 5 && argc != 6) || check_neg(argc, argv) == false)
+	if ((argc != 5 && argc != 6) || !check_str(argc, argv) || !check_neg(argc, argv))
 		return (1);
 	rules->nb_philo = ft_atoi(argv[1]);
 	rules->time_to_die = ft_atoi(argv[2]);
